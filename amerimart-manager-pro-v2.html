@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amerimart Manager Pro V2</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Amerimart Pro">
+<meta name="theme-color" content="#08111f">
+<style>
+:root{
+  --bg:#08111f;--bg2:#0d1728;--card:#151f31;--card2:#1c273a;--soft:#243247;--line:#344156;
+  --ink:#f8fafc;--muted:#9aa8bd;--primary:#22d3ee;--primary2:#2563eb;--green:#22c55e;--red:#ef4444;
+  --orange:#f59e0b;--purple:#a78bfa;--shadow:0 20px 50px rgba(0,0,0,.35);--radius:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:radial-gradient(circle at top left,#132743 0,#08111f 45%,#050914 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{min-height:100vh}.hidden{display:none!important}.muted{color:var(--muted)}.right{text-align:right}.dangerText{color:#fca5a5}.okText{color:#86efac}.warnText{color:#fcd34d}
+a{color:inherit}.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:18px 14px;background:rgba(8,17,31,.9);border-right:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);overflow:auto}.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#22c55e,#06b6d4);display:grid;place-items:center;font-size:25px;box-shadow:0 10px 24px rgba(6,182,212,.25)}.brand h1{font-size:18px;line-height:1.05;margin:0;font-weight:1000}.brand p{font-size:11px;margin:4px 0 0;color:var(--muted);font-weight:700}.navBtn{width:100%;display:flex;align-items:center;gap:10px;border:1px solid transparent;background:transparent;color:#cbd5e1;padding:12px;border-radius:16px;margin:5px 0;font-weight:900;text-align:left;cursor:pointer}.navBtn:hover,.navBtn.active{background:linear-gradient(135deg,rgba(34,211,238,.16),rgba(37,99,235,.12));border-color:rgba(34,211,238,.28);color:white}.navBtn .ico{font-size:20px;width:25px;text-align:center}.employeeBox{margin-top:18px;padding:12px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}label{font-weight:900;font-size:13px;display:block;margin:12px 0 7px}.main{padding:18px 20px 88px;max-width:1220px;width:100%;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:12px}.pageTitle h2{margin:0;font-size:26px;letter-spacing:-.5px}.pageTitle p{margin:5px 0 0;color:var(--muted);font-weight:700}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.09);font-size:12px;font-weight:900;color:#dbeafe}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:16px;box-shadow:var(--shadow)}.stat b{font-size:30px;display:block}.stat span{color:var(--muted);font-size:12px;font-weight:900}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.045));border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:18px;margin:16px 0;box-shadow:var(--shadow);backdrop-filter:blur(14px)}.cardHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.cardHeader h3{margin:0;font-size:20px;letter-spacing:-.25px}.tile{min-height:112px;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.1);padding:18px;cursor:pointer;box-shadow:var(--shadow)}.tile:hover{border-color:rgba(34,211,238,.45);transform:translateY(-1px)}.tile .big{font-size:29px;margin-bottom:12px}.tile b{display:block}.tile span{display:block;color:var(--muted);font-size:12px;font-weight:800;margin-top:4px}button{border:0;border-radius:15px;padding:12px 14px;font-weight:1000;color:white;background:var(--soft);cursor:pointer;font-size:14px}button:active{transform:scale(.98)}.blue{background:linear-gradient(135deg,var(--primary2),#0891b2)}.green{background:linear-gradient(135deg,#16a34a,#22c55e)}.red{background:linear-gradient(135deg,#dc2626,#ef4444)}.orange{background:linear-gradient(135deg,#f59e0b,#fb923c);color:#111827}.gray{background:#273449}.purple{background:linear-gradient(135deg,#7c3aed,#a78bfa)}.ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.actions{display:flex;gap:10px;flex-wrap:wrap}.fieldRow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.input,input,select,textarea{width:100%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07);border-radius:16px;color:white;padding:13px 14px;font-weight:800;outline:none;font-size:15px}select option{background:#111827;color:white}textarea{min-height:120px;resize:vertical}.scanLine{display:grid;grid-template-columns:1fr auto auto;gap:10px}.tableWrap{overflow:auto;border:1px solid rgba(255,255,255,.1);border-radius:18px}table{width:100%;border-collapse:collapse;background:rgba(6,12,24,.35)}th,td{border-bottom:1px solid rgba(255,255,255,.08);padding:12px;text-align:left;font-size:13px;vertical-align:middle}th{color:#cbd5e1;text-transform:uppercase;font-size:11px;letter-spacing:.06em;background:rgba(255,255,255,.05)}tr:last-child td{border-bottom:0}.productBox{display:grid;grid-template-columns:95px 1fr;gap:16px;align-items:center}.prodImg{width:95px;height:95px;border-radius:24px;display:grid;place-items:center;font-size:44px;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.1);overflow:hidden}.prodImg img{width:100%;height:100%;object-fit:cover}.prodName{font-size:24px;font-weight:1000;letter-spacing:-.4px}.priceBig{font-size:42px;font-weight:1000;line-height:1}.shelfGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.shelfCard{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);border-radius:20px;padding:14px;cursor:pointer}.shelfCard:hover{border-color:rgba(34,211,238,.5)}.shelfTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.miniProducts{display:flex;gap:6px;flex-wrap:wrap}.mini{min-width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.08);display:grid;place-items:center;border:1px solid rgba(255,255,255,.08);font-size:22px}.doorTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.doorTab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px;text-align:left}.doorTab.active{border-color:#22d3ee;background:rgba(34,211,238,.14)}.status{border-radius:999px;padding:5px 9px;font-size:11px;font-weight:1000}.status.Full,.status.Delivered,.status.done{background:rgba(34,197,94,.18);color:#86efac}.status.Low,.status.Picked{background:rgba(245,158,11,.18);color:#fcd34d}.status.Empty,.status.Open,.status.open{background:rgba(239,68,68,.18);color:#fca5a5}.status.Need{background:rgba(168,85,247,.18);color:#d8b4fe}.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:80;display:grid;place-items:center;padding:16px}.modalCard{width:min(860px,100%);max-height:88vh;overflow:auto;background:#111a2a;border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:18px;box-shadow:0 30px 90px rgba(0,0,0,.55)}.listCard{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:18px;padding:12px;margin:10px 0}.bottomNav{display:none}.toast{position:fixed;right:18px;bottom:18px;z-index:100;background:#122033;border:1px solid rgba(34,211,238,.3);border-radius:18px;padding:13px 15px;box-shadow:var(--shadow);font-weight:900}.printArea{display:none}.labelGrid{display:grid;grid-template-columns:repeat(3,2.625in);gap:.125in .125in}.label{width:2.625in;height:1in;border:1px dashed #999;padding:.08in .1in;color:#000;background:white;overflow:hidden;font-family:Arial,sans-serif}.label b{font-size:11pt}.label .priceLine{font-size:20pt;font-weight:900;float:right}.label small{font-size:7pt;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.imagePreview{max-width:100%;border-radius:18px;border:1px solid rgba(255,255,255,.12);margin-top:10px}.banner{border:1px solid rgba(34,211,238,.25);background:rgba(34,211,238,.08);border-radius:18px;padding:12px;color:#dffbff;font-weight:800;line-height:1.45}
+@media(max-width:900px){.app{display:block}.sidebar{display:none}.main{padding:14px 12px 94px}.cards,.grid3,.grid{grid-template-columns:1fr}.doorTabs,.shelfGrid{grid-template-columns:repeat(2,1fr)}.topbar{align-items:flex-start}.scanLine,.fieldRow{grid-template-columns:1fr}.bottomNav{position:fixed;bottom:10px;left:10px;right:10px;display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:rgba(8,17,31,.92);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:7px;z-index:50;backdrop-filter:blur(16px)}.bottomNav button{font-size:11px;padding:8px 4px;background:transparent}.bottomNav .active{background:rgba(255,255,255,.1)}.productBox{grid-template-columns:82px 1fr}.prodImg{width:82px;height:82px}.prodName{font-size:20px}.listCard{grid-template-columns:56px 1fr}.listCard .actions{grid-column:1/-1}.cards{gap:10px}.labelGrid{grid-template-columns:1fr}.label{width:100%;height:auto;min-height:1in}}
+@media print{body{background:#fff!important}.app,.sidebar,.main,.bottomNav,.toast,.modal{display:none!important}.printArea{display:block!important;padding:.25in}.labelGrid{display:grid;grid-template-columns:repeat(3,2.625in);gap:.125in .125in}.label{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">🏪</div><div><h1>Amerimart<br>Manager Pro</h1><p>V2 complete store app</p></div></div>
+    <button class="navBtn active" data-page="dashboard" onclick="showPage('dashboard')"><span class="ico">🏠</span>Dashboard</button>
+    <button class="navBtn" data-page="price" onclick="showPage('price')"><span class="ico">💲</span>Price Checker</button>
+    <button class="navBtn" data-page="cooler" onclick="showPage('cooler')"><span class="ico">🧊</span>Cooler Planogram</button>
+    <button class="navBtn" data-page="inventory" onclick="showPage('inventory')"><span class="ico">📦</span>Inventory</button>
+    <button class="navBtn" data-page="invoice" onclick="showPage('invoice')"><span class="ico">🚚</span>Invoice Scanner</button>
+    <button class="navBtn" data-page="tasks" onclick="showPage('tasks')"><span class="ico">📋</span>Daily Tasks</button>
+    <button class="navBtn" data-page="cigarette" onclick="showPage('cigarette')"><span class="ico">🚬</span>Cigarette Order</button>
+    <button class="navBtn" data-page="labels" onclick="showPage('labels')"><span class="ico">🏷️</span>Print Labels</button>
+    <button class="navBtn" data-page="reports" onclick="showPage('reports')"><span class="ico">📈</span>Reports</button>
+    <button class="navBtn" data-page="database" onclick="showPage('database')"><span class="ico">🗄️</span>Database</button>
+    <div class="employeeBox">
+      <label>Current employee</label>
+      <select id="employeeSelect" onchange="saveSetting('employee',this.value);renderAll()">
+        <option>Manager</option><option>Cashier</option><option>Deli</option><option>Night Shift</option><option>Ashish</option><option>Aman</option><option>Gurmeet</option>
+      </select>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="pageTitle"><h2 id="pageHeading">Dashboard</h2><p id="pageSub">Products • cooler • inventory • tasks • labels</p></div>
+      <div class="actions"><span class="pill">👤 <span id="whoPill">Manager</span></span><span class="pill">📱 iPhone ready</span></div>
+    </div>
+
+    <section id="dashboard" class="page">
+      <div class="cards">
+        <div class="stat"><b id="dashProducts">0</b><span>Products</span></div>
+        <div class="stat"><b id="dashLabels">0</b><span>Labels queued</span></div>
+        <div class="stat"><b id="dashCooler">0%</b><span>Cooler done</span></div>
+        <div class="stat"><b id="dashTasks">0</b><span>Tasks open</span></div>
+      </div>
+      <div class="grid3">
+        <div class="tile" onclick="showPage('price')"><div class="big">💲</div><b>Price Checker</b><span>Scan UPC and update price</span></div>
+        <div class="tile" onclick="showPage('cooler')"><div class="big">🧊</div><b>Cooler Planogram</b><span>Doors, shelves, backstock</span></div>
+        <div class="tile" onclick="showPage('inventory')"><div class="big">📦</div><b>Inventory</b><span>Scan count and low stock</span></div>
+        <div class="tile" onclick="showPage('invoice')"><div class="big">🚚</div><b>Invoice Scanner</b><span>Photo, paste text, compare</span></div>
+        <div class="tile" onclick="showPage('tasks')"><div class="big">📋</div><b>Daily Tasks</b><span>Shift checklists</span></div>
+        <div class="tile" onclick="showPage('cigarette')"><div class="big">🚬</div><b>Cigarette Order</b><span>Scan outs and order qty</span></div>
+        <div class="tile" onclick="showPage('labels')"><div class="big">🏷️</div><b>Print Labels <span class="status Full" id="dashLabelsBadge">0</span></b><span>Avery 8460 label grid</span></div>
+        <div class="tile" onclick="showPage('database')"><div class="big">🗄️</div><b>Database</b><span>CSV import, backup, Supabase</span></div>
+        <div class="tile" onclick="showPage('reports')"><div class="big">📈</div><b>Reports</b><span>Employee activity and totals</span></div>
+      </div>
+      <div class="card">
+        <div class="cardHeader"><h3>⚡ Recent Activity</h3><button class="gray" onclick="clearActivity()">Clear</button></div>
+        <div class="tableWrap"><table><thead><tr><th>Time</th><th>Employee</th><th>Action</th><th>Details</th></tr></thead><tbody id="recentActivity"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="price" class="page hidden">
+      <div class="grid">
+        <div class="card">
+          <div class="cardHeader"><h3>📷 Scan or Type UPC</h3><span class="pill">Camera ready</span></div>
+          <div class="scanLine"><input id="priceUpc" inputmode="numeric" placeholder="Scan or type UPC"><button class="blue" onclick="searchPrice()">Search</button><button class="gray" onclick="openScanner('priceUpc','searchPrice')">Camera</button></div>
+          <p class="muted">Bluetooth scanner works in this box. Camera scanner works best on iPhone Safari with HTTPS.</p>
+        </div>
+        <div class="card">
+          <div class="cardHeader"><h3>🧾 Quick Actions</h3></div>
+          <div class="actions"><button class="green" onclick="showPage('labels')">Open Print Queue</button><button class="gray" onclick="focusInput('priceUpc')">Quick Search</button></div>
+        </div>
+      </div>
+      <div id="priceResult" class="card hidden"></div>
+    </section>
+
+    <section id="cooler" class="page hidden">
+      <div class="card">
+        <div class="cardHeader"><h3>🧊 Cooler Planogram</h3><div class="actions"><button class="blue" onclick="showAddShelfProduct()">+ Add Product to Shelf</button><button class="green" onclick="renderCooler()">Refresh</button></div></div>
+        <div class="doorTabs" id="doorTabs"></div>
+      </div>
+      <div id="coolerShelves" class="shelfGrid"></div>
+      <div class="grid">
+        <div class="card" id="addShelfBox">
+          <div class="cardHeader"><h3>➕ Scan Product Into Shelf</h3></div>
+          <div class="scanLine"><input id="shelfUpc" inputmode="numeric" placeholder="Scan UPC"><button class="gray" onclick="openScanner('shelfUpc','previewShelfProduct')">Camera</button><button class="blue" onclick="previewShelfProduct()">Find</button></div>
+          <div class="fieldRow"><div><label>Door</label><select id="shelfDoor"></select></div><div><label>Shelf</label><select id="shelfNumber"></select></div></div>
+          <div class="fieldRow"><div><label>Status</label><select id="shelfStatus"><option>Full</option><option>Low</option><option>Empty</option><option>Need Backstock</option></select></div><div><label>Need Qty</label><input id="shelfNeed" type="number" min="0" value="0"></div></div>
+          <div id="shelfProductPreview" class="muted" style="margin-top:10px"></div>
+          <div class="actions" style="margin-top:12px"><button class="green" onclick="addProductToShelf()">Save to Shelf</button></div>
+        </div>
+        <div class="card">
+          <div class="cardHeader"><h3>📦 Backroom Pick List</h3><span class="pill" id="pickCount">0 open</span></div>
+          <div id="pickList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inventory" class="page hidden">
+      <div class="grid">
+        <div class="card">
+          <div class="cardHeader"><h3>📦 Inventory Scan Count</h3></div>
+          <div class="scanLine"><input id="invUpc" inputmode="numeric" placeholder="Scan UPC"><button class="gray" onclick="openScanner('invUpc','previewInventory')">Camera</button><button class="blue" onclick="previewInventory()">Find</button></div>
+          <div id="invPreview" style="margin-top:12px"></div>
+          <div class="fieldRow"><div><label>Quantity</label><input id="invQty" type="number" min="0" placeholder="0"></div><div><label>Location</label><input id="invLocation" placeholder="Cooler / Backroom / Shelf"></div></div>
+          <div class="actions" style="margin-top:12px"><button class="green" onclick="saveInventoryCount()">Save Count</button><button class="gray" onclick="downloadInventoryCSV()">Export CSV</button></div>
+        </div>
+        <div class="card">
+          <div class="cardHeader"><h3>⚠️ Low / Out of Stock</h3></div>
+          <div id="lowStockList"></div>
+        </div>
+      </div>
+      <div class="card"><div class="cardHeader"><h3>Recently Counted</h3></div><div class="tableWrap"><table><thead><tr><th>Date</th><th>UPC</th><th>Name</th><th>Qty</th><th>Location</th><th>By</th></tr></thead><tbody id="inventoryBody"></tbody></table></div></div>
+    </section>
+
+    <section id="invoice" class="page hidden">
+      <div class="banner">Take a photo of the invoice for record keeping, then paste text or add rows. Browser-only OCR is not reliable, so this version includes photo capture + smart text parsing + manual correction.</div>
+      <div class="grid">
+        <div class="card">
+          <div class="cardHeader"><h3>🚚 Invoice Photo / Text</h3></div>
+          <label>Invoice photo</label><input type="file" accept="image/*" capture="environment" onchange="previewInvoiceImage(event)"><img id="invoicePreview" class="imagePreview hidden" alt="Invoice preview">
+          <label>Paste extracted invoice text</label><textarea id="invoiceText" placeholder="Paste lines with UPC, qty, cost, retail. Example: 049000028904 Coke 20oz 12 1.25 2.49"></textarea>
+          <div class="actions" style="margin-top:12px"><button class="blue" onclick="parseInvoiceText()">Parse Text</button><button class="green" onclick="saveInvoiceRows()">Save Invoice</button></div>
+        </div>
+        <div class="card">
+          <div class="cardHeader"><h3>➕ Add Invoice Row</h3></div>
+          <input id="invoiceUpc" inputmode="numeric" placeholder="UPC"><div class="fieldRow"><input id="invoiceQty" type="number" placeholder="Qty"><input id="invoiceCost" inputmode="decimal" placeholder="Cost"></div><div class="fieldRow"><input id="invoiceRetail" inputmode="decimal" placeholder="Retail"><input id="invoiceName" placeholder="Product name optional"></div>
+          <div class="actions" style="margin-top:12px"><button class="gray" onclick="openScanner('invoiceUpc','')">Camera UPC</button><button class="green" onclick="addInvoiceRowManual()">Add Row</button></div>
+        </div>
+      </div>
+      <div class="card"><div class="cardHeader"><h3>Invoice Items / Compare</h3><button class="red" onclick="clearInvoiceRows()">Clear Rows</button></div><div class="tableWrap"><table><thead><tr><th>UPC</th><th>Name</th><th>Qty</th><th>Cost</th><th>Retail</th><th>Margin</th><th>Status</th></tr></thead><tbody id="invoiceRowsBody"></tbody></table></div></div>
+    </section>
+
+    <section id="tasks" class="page hidden">
+      <div class="grid">
+        <div class="card">
+          <div class="cardHeader"><h3>📋 Daily Tasks</h3><button class="gray" onclick="resetDefaultTasks()">Load Default</button></div>
+          <div class="fieldRow"><input id="taskTitle" placeholder="Task name"><select id="taskShift"><option>Morning</option><option>Day</option><option>Night</option><option>Deli</option></select></div>
+          <div class="fieldRow"><input id="taskAssigned" placeholder="Assigned to"><input id="taskDue" type="time"></div>
+          <div class="actions" style="margin-top:12px"><button class="green" onclick="addTask()">Add Task</button></div>
+        </div>
+        <div class="card"><div class="cardHeader"><h3>Manager Review</h3></div><p class="muted">Every completed task saves employee name and time. Manager can mark reviewed.</p><div class="cards" style="grid-template-columns:repeat(2,1fr)"><div class="stat"><b id="taskDoneCount">0</b><span>Done</span></div><div class="stat"><b id="taskOpenCount">0</b><span>Open</span></div></div></div>
+      </div>
+      <div class="card"><div class="tableWrap"><table><thead><tr><th>Task</th><th>Shift</th><th>Assigned</th><th>Status</th><th>Completed By</th><th>Time</th><th>Action</th></tr></thead><tbody id="taskBody"></tbody></table></div></div>
+    </section>
+
+    <section id="cigarette" class="page hidden">
+      <div class="grid">
+        <div class="card"><div class="cardHeader"><h3>🚬 Cigarette Order</h3></div><div class="scanLine"><input id="cigUpc" inputmode="numeric" placeholder="Scan cigarette UPC"><button class="gray" onclick="openScanner('cigUpc','previewCig')">Camera</button><button class="blue" onclick="previewCig()">Find</button></div><div id="cigPreview" style="margin-top:12px"></div><div class="fieldRow"><input id="cigQty" type="number" placeholder="Order qty" value="1"><select id="cigCategory"><option>Marlboro</option><option>Camel</option><option>Newport</option><option>Other Cigarette</option><option>Chew</option><option>Vape</option></select></div><div class="actions" style="margin-top:12px"><button class="green" onclick="addCigOrder()">Add to Order</button><button class="gray" onclick="downloadCigCSV()">Export CSV</button></div></div>
+        <div class="card"><div class="cardHeader"><h3>Order Summary</h3><span class="pill" id="cigCount">0 items</span></div><p class="muted">Use this for scan-outs and weekly cigarette order prep.</p></div>
+      </div>
+      <div class="card"><div class="tableWrap"><table><thead><tr><th>UPC</th><th>Name</th><th>Category</th><th>Qty</th><th>By</th><th>Status</th><th></th></tr></thead><tbody id="cigBody"></tbody></table></div></div>
+    </section>
+
+    <section id="labels" class="page hidden">
+      <div class="card">
+        <div class="cardHeader"><h3>🏷️ Print Labels Queue</h3><span class="pill" id="labelCountPill">0 labels</span></div>
+        <div class="actions"><button class="green" onclick="printLabels()">Print Avery 8460</button><button class="gray" onclick="downloadLabelsCSV()">Download CSV</button><button class="red" onclick="clearPrintQueue()">Clear Queue</button></div>
+      </div>
+      <div class="card"><div class="tableWrap"><table><thead><tr><th>Date</th><th>UPC</th><th>Name</th><th>Old</th><th>New</th><th>Changed By</th><th></th></tr></thead><tbody id="labelBody"></tbody></table></div></div>
+    </section>
+
+    <section id="reports" class="page hidden">
+      <div class="cards">
+        <div class="stat"><b id="repPriceToday">0</b><span>Price changes today</span></div>
+        <div class="stat"><b id="repPickOpen">0</b><span>Backroom open</span></div>
+        <div class="stat"><b id="repInvToday">0</b><span>Inventory counts today</span></div>
+        <div class="stat"><b id="repInvoiceRows">0</b><span>Invoice rows saved</span></div>
+      </div>
+      <div class="card"><div class="cardHeader"><h3>Employee Activity Report</h3><button class="gray" onclick="downloadActivityCSV()">Export Activity</button></div><div class="tableWrap"><table><thead><tr><th>Time</th><th>Employee</th><th>Action</th><th>Details</th></tr></thead><tbody id="activityBody"></tbody></table></div></div>
+    </section>
+
+    <section id="database" class="page hidden">
+      <div class="grid">
+        <div class="card">
+          <div class="cardHeader"><h3>🗄️ Product Database</h3></div>
+          <p class="muted">Keep your existing <b>products.js</b> next to this index.html, or import a CSV. Data saved in this browser stays on this device unless you export/sync.</p>
+          <label>Import pricebook CSV</label><input type="file" accept=".csv,text/csv" onchange="importCSV(event)">
+          <div class="actions" style="margin-top:12px"><button class="green" onclick="downloadProductsCSV()">Export Products CSV</button><button class="gray" onclick="exportBackup()">Download Full Backup JSON</button><button class="orange" onclick="document.getElementById('backupFile').click()">Import Backup</button><input id="backupFile" class="hidden" type="file" accept="application/json" onchange="importBackup(event)"></div>
+        </div>
+        <div class="card">
+          <div class="cardHeader"><h3>☁️ Supabase Sync</h3></div>
+          <p class="muted">Use only your Supabase URL and anon/publishable key. Never paste a secret/service-role key into this app.</p>
+          <label>Supabase URL</label><input id="supabaseUrl" placeholder="https://xxxxx.supabase.co">
+          <label>Anon / publishable key</label><input id="supabaseKey" placeholder="Paste public anon key">
+          <div class="actions" style="margin-top:12px"><button class="gray" onclick="saveSupabaseSettings()">Save Settings</button><button class="blue" onclick="loadProductsFromSupabase()">Load Products</button><button class="green" onclick="syncProductsToSupabase()">Upload Products</button></div>
+          <p class="muted">Supabase table expected: <b>products</b> with columns upc, name, price, department, image, qty, min_stock.</p>
+        </div>
+      </div>
+      <div class="card"><div class="cardHeader"><h3>Database Preview</h3><span class="pill" id="dbProductCount">0 products</span></div><div class="tableWrap"><table><thead><tr><th>UPC</th><th>Name</th><th>Price</th><th>Department</th><th>Qty</th></tr></thead><tbody id="dbPreview"></tbody></table></div></div>
+    </section>
+  </main>
+</div>
+
+<nav class="bottomNav">
+  <button data-page="dashboard" onclick="showPage('dashboard')">🏠<br>Home</button>
+  <button data-page="price" onclick="showPage('price')">💲<br>Price</button>
+  <button data-page="cooler" onclick="showPage('cooler')">🧊<br>Cooler</button>
+  <button data-page="inventory" onclick="showPage('inventory')">📦<br>Inv</button>
+  <button data-page="labels" onclick="showPage('labels')">🏷️<br>Labels</button>
+</nav>
+
+<div id="scanOverlay" class="modal hidden"><div class="modalCard"><div class="cardHeader"><h3>📷 Barcode Scanner</h3><button class="red" onclick="closeScanner()">Close</button></div><div id="reader" style="width:100%;max-width:560px;margin:0 auto;border-radius:20px;overflow:hidden"></div><p class="muted">Allow camera permission. Hold barcode steady inside the box.</p></div></div>
+<div id="shelfModal" class="modal hidden"><div class="modalCard"><div class="cardHeader"><h3 id="shelfModalTitle">Shelf Details</h3><button class="red" onclick="closeShelfModal()">Close</button></div><div id="shelfModalBody"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<div class="printArea"><h2 style="color:#000;margin:0 0 .15in">Amerimart Price Labels</h2><div id="printLabelsArea" class="labelGrid"></div></div>
+
+<script src="products.js"></script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+<script>
+const SAMPLE_PRODUCTS=[
+ {upc:'049000028904',name:'Coca-Cola 20oz',price:2.49,department:'Soda',image:'🥤',qty:24,min_stock:6},
+ {upc:'012000001307',name:'Pepsi 20oz',price:2.49,department:'Soda',image:'🥤',qty:18,min_stock:6},
+ {upc:'611269991000',name:'Red Bull 12oz',price:3.49,department:'Energy',image:'⚡',qty:12,min_stock:6},
+ {upc:'078742152166',name:'Bottled Water',price:1.49,department:'Water',image:'💧',qty:30,min_stock:10},
+ {upc:'028400064316',name:'Lays Classic',price:2.29,department:'Chips',image:'🍟',qty:15,min_stock:5},
+ {upc:'070847811036',name:'Marlboro Red King',price:11.99,department:'Cigarette',image:'🚬',qty:20,min_stock:4}
+];
+const KEY={products:'amp_products_v2',priceChanges:'amp_price_changes_v2',printQueue:'amp_print_queue_v2',cooler:'amp_cooler_v2',pick:'amp_picklist_v2',inventory:'amp_inventory_v2',invoice:'amp_invoice_v2',tasks:'amp_tasks_v2',cig:'amp_cig_v2',activity:'amp_activity_v2',settings:'amp_settings_v2',invoiceRows:'amp_invoice_rows_working_v2'};
+let allProducts=[], productIndex=new Map(), currentPriceProduct=null, currentInvProduct=null, currentCigProduct=null, selectedDoor=1, scanner=null, scanTarget='', scanAfter='';
+function $(id){return document.getElementById(id)}
+function money(n){return (n===undefined||n===null||isNaN(Number(n)))?'':'$'+Number(n).toFixed(2)}
+function clean(v){return String(v||'').replace(/\D/g,'').trim()}
+function todayKey(d=new Date()){return d.toLocaleDateString()}
+function getLS(k,def){try{return JSON.parse(localStorage.getItem(k))??def}catch(e){return def}}
+function setLS(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function setting(name,def=''){return getLS(KEY.settings,{})[name]??def}
+function saveSetting(name,val){const s=getLS(KEY.settings,{});s[name]=val;setLS(KEY.settings,s)}
+function employee(){return $('employeeSelect').value||'Manager'}
+function toast(msg){$('toast').textContent=msg;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2600)}
+function variants(code){code=clean(code);const s=new Set([code]);let noLead=code.replace(/^0+/,'');if(noLead)s.add(noLead);if(code.length===13&&code[0]==='0')s.add(code.slice(1));if(code.length===12&&code[0]==='0')s.add(code.slice(1));if(code.length===11)s.add('0'+code);if(code.length===10){s.add('0'+code);s.add('00'+code)}if(code.length<12)s.add(code.padStart(12,'0'));if(code.length<13)s.add(code.padStart(13,'0'));return [...s].filter(Boolean)}
+function normalizeProduct(p){return {upc:clean(p.upc||p.UPC||p.barcode||p.Barcode||p.code||''),name:String(p.name||p.Name||p.description||p.Description||p.item||'Unknown Product').trim(),price:Number(p.price??p.Price??p.retail??p.Retail??p['Retail Price']??0)||0,department:String(p.department||p.Department||p.dept||p.Dept||'General').trim(),image:p.image||p.Image||'',qty:Number(p.qty??p.quantity??p.Quantity??0)||0,min_stock:Number(p.min_stock??p.minStock??p['Min Stock']??5)||5,last_cost:Number(p.last_cost??p.cost??p.Cost??0)||0}}
+function loadProducts(){const saved=getLS(KEY.products,null);const base=saved||(window.PRODUCTS&&window.PRODUCTS.length?window.PRODUCTS:SAMPLE_PRODUCTS);allProducts=base.map(normalizeProduct).filter(p=>p.upc);buildIndex()}
+function buildIndex(){productIndex=new Map();for(const p of allProducts){for(const v of variants(p.upc)){if(!productIndex.has(v))productIndex.set(v,p)}}}
+function saveProducts(){setLS(KEY.products,allProducts);buildIndex();renderAll()}
+function findProduct(code){for(const v of variants(code)){if(productIndex.has(v))return productIndex.get(v)}return null}
+function prodImage(p,cls='prodImg'){if(!p)return `<div class="${cls}">🛒</div>`; if(p.image&&/^https?:|^data:image/.test(p.image))return `<div class="${cls}"><img src="${esc(p.image)}" alt=""></div>`; return `<div class="${cls}">${p.image||productEmoji(p.department)}</div>`}
+function productEmoji(dept){dept=String(dept||'').toLowerCase(); if(dept.includes('cig')||dept.includes('tobacco'))return '🚬'; if(dept.includes('beer'))return '🍺'; if(dept.includes('energy'))return '⚡'; if(dept.includes('water'))return '💧'; if(dept.includes('chip'))return '🍟'; if(dept.includes('candy'))return '🍫'; if(dept.includes('food')||dept.includes('deli'))return '🍔'; if(dept.includes('soda')||dept.includes('drink'))return '🥤'; return '🛒'}
+function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function logAction(action,details){const a=getLS(KEY.activity,[]);a.unshift({time:new Date().toLocaleString(),employee:employee(),action,details});setLS(KEY.activity,a.slice(0,500));renderActivity()}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));const titles={dashboard:['Dashboard','Products • cooler • inventory • tasks • labels'],price:['Price Checker','Scan UPC, update price, add to print queue'],cooler:['Cooler Planogram','Tap shelves, status, backroom pick list'],inventory:['Inventory','Scan count, low stock, export'],invoice:['Invoice Scanner','Photo capture, text parser, product compare'],tasks:['Daily Tasks','Employee checklist and manager review'],cigarette:['Cigarette Order','Scan outs and prepare order'],labels:['Print Labels','Changed prices and Avery label grid'],reports:['Reports','Daily totals and employee activity'],database:['Database','CSV import, backup, Supabase sync']};$('pageHeading').textContent=titles[id][0];$('pageSub').textContent=titles[id][1];renderAll();window.scrollTo({top:0,behavior:'smooth'})}
+function renderAll(){if($('employeeSelect')){$('employeeSelect').value=setting('employee','Manager');$('whoPill').textContent=employee()}renderDashboard();renderActivity();renderPriceQueue();renderCooler();renderInventory();renderTasks();renderCig();renderInvoiceRows();renderReports();renderDatabase()}
+function renderDashboard(){const pq=getLS(KEY.printQueue,[]), tasks=getLS(KEY.tasks,defaultTasks()), openTasks=tasks.filter(t=>t.status!=='done').length;$('dashProducts').textContent=allProducts.length.toLocaleString();$('dashLabels').textContent=pq.length;$('dashLabelsBadge').textContent=pq.length;$('dashTasks').textContent=openTasks;let cooler=getLS(KEY.cooler,defaultCooler());let items=cooler.flatMap(s=>s.items||[]);let full=items.filter(i=>i.status==='Full').length;$('dashCooler').textContent=items.length?Math.round(full/items.length*100)+'%':'0%'}
+function renderActivity(){const a=getLS(KEY.activity,[]);const rows=a.slice(0,12).map(x=>`<tr><td>${esc(x.time)}</td><td>${esc(x.employee)}</td><td>${esc(x.action)}</td><td>${esc(x.details)}</td></tr>`).join('')||`<tr><td colspan="4" class="muted">No activity yet.</td></tr>`;$('recentActivity').innerHTML=rows;if($('activityBody'))$('activityBody').innerHTML=(a.map(x=>`<tr><td>${esc(x.time)}</td><td>${esc(x.employee)}</td><td>${esc(x.action)}</td><td>${esc(x.details)}</td></tr>`).join('')||`<tr><td colspan="4" class="muted">No activity yet.</td></tr>`)}
+function clearActivity(){if(confirm('Clear activity log?')){setLS(KEY.activity,[]);renderAll()}}
+function focusInput(id){$(id).focus()}
+function searchPrice(){const code=clean($('priceUpc').value);const p=findProduct(code);currentPriceProduct=p;if(!p){$('priceResult').classList.remove('hidden');$('priceResult').innerHTML=`<div class="cardHeader"><h3>❌ Product Not Found</h3></div><p>UPC scanned: <b>${esc(code)}</b></p><p class="muted">Tried: ${variants(code).join(', ')}</p><div class="actions"><button class="orange" onclick="showPage('database')">Import Database</button></div>`;return}$('priceResult').classList.remove('hidden');$('priceResult').innerHTML=`<div class="cardHeader"><h3>✅ Product Found</h3><span class="pill">${esc(p.department)}</span></div><div class="productBox">${prodImage(p)}<div><div class="prodName">${esc(p.name)}</div><div class="muted">UPC: <b>${esc(p.upc)}</b></div><div class="priceBig">${money(p.price)}</div></div></div><div class="fieldRow"><div><label>New Correct Price</label><input id="priceNew" inputmode="decimal" placeholder="Example: 2.99"></div><div><label>Reason</label><select id="priceReason"><option>Price changed</option><option>Wrong shelf tag</option><option>Invoice cost changed</option><option>Promotion ended</option><option>New item</option></select></div></div><div class="actions" style="margin-top:12px"><button class="green" onclick="priceCorrect()">✅ Price Correct</button><button class="blue" onclick="savePriceChange()">💾 Save Change + Print Label</button><button class="gray" onclick="addPriceProductToInventory()">Inventory Count</button></div>`;setTimeout(()=>$('priceNew')&&$('priceNew').focus(),100)}
+function priceCorrect(){if(currentPriceProduct){logAction('Price checked',`${currentPriceProduct.name} correct at ${money(currentPriceProduct.price)}`);toast('Marked correct')}}
+function savePriceChange(){const p=currentPriceProduct;if(!p)return;const n=Number(String($('priceNew').value).replace('$',''));if(isNaN(n)||n<=0){toast('Enter new price');return}const old=p.price;p.price=n;saveProducts();const item={id:Date.now()+Math.random(),date:new Date().toLocaleString(),upc:p.upc,name:p.name,old,new:n,changedBy:employee(),reason:$('priceReason').value};const pc=getLS(KEY.priceChanges,[]);pc.unshift(item);setLS(KEY.priceChanges,pc);const q=getLS(KEY.printQueue,[]);q.unshift(item);setLS(KEY.printQueue,q);logAction('Price changed',`${p.name}: ${money(old)} → ${money(n)}`);toast('Saved and added to print queue');showPage('labels')}
+function addPriceProductToInventory(){if(!currentPriceProduct)return;showPage('inventory');$('invUpc').value=currentPriceProduct.upc;previewInventory()}
+function renderPriceQueue(){const q=getLS(KEY.printQueue,[]);if($('labelCountPill'))$('labelCountPill').textContent=q.length+' labels';if($('labelBody'))$('labelBody').innerHTML=q.map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.upc)}</td><td>${esc(x.name)}</td><td>${money(x.old)}</td><td><b>${money(x.new)}</b></td><td>${esc(x.changedBy)}</td><td><button class="red" onclick="removeLabel('${x.id}')">Remove</button></td></tr>`).join('')||`<tr><td colspan="7" class="muted">No labels queued yet.</td></tr>`;renderDashboard()}
+function removeLabel(id){setLS(KEY.printQueue,getLS(KEY.printQueue,[]).filter(x=>String(x.id)!==String(id)));renderAll()}
+function clearPrintQueue(){if(confirm('Clear print queue?')){setLS(KEY.printQueue,[]);renderAll()}}
+function printLabels(){const q=getLS(KEY.printQueue,[]);$('printLabelsArea').innerHTML=q.map(x=>`<div class="label"><span class="priceLine">${money(x.new)}</span><b>${esc(x.name)}</b><small>UPC: ${esc(x.upc)}</small><small>Old: ${money(x.old)} • New: ${money(x.new)}</small><small>${esc(x.date)} • ${esc(x.changedBy)}</small></div>`).join('');window.print()}
+function defaultCooler(){const arr=[];for(let d=1;d<=4;d++){for(let s=1;s<=7;s++){arr.push({door:d,shelf:s,items:[]})}}return arr}
+function getCooler(){let c=getLS(KEY.cooler,null);if(!c){c=defaultCooler();const sample=['049000028904','012000001307','611269991000','078742152166'];for(let s=1;s<=7;s++){const sh=c.find(x=>x.door===1&&x.shelf===s);sh.items=sample.map((u,i)=>({upc:u,status:i===0?'Low':'Full',need:i===0?4:0,updatedAt:new Date().toLocaleString(),updatedBy:'Manager'}))}setLS(KEY.cooler,c)}return c}
+function saveCooler(c){setLS(KEY.cooler,c);renderAll()}
+function renderCooler(){if(!$('doorTabs'))return;const doors=[1,2,3,4];$('doorTabs').innerHTML=doors.map(d=>`<button class="doorTab ${selectedDoor===d?'active':''}" onclick="selectedDoor=${d};renderCooler()"><div style="font-size:25px">🚪</div><b>Door ${d}</b></button>`).join('');$('shelfDoor').innerHTML=doors.map(d=>`<option ${d===selectedDoor?'selected':''}>${d}</option>`).join('');$('shelfNumber').innerHTML=Array.from({length:7},(_,i)=>`<option>${i+1}</option>`).join('');const c=getCooler();const shelves=c.filter(x=>x.door===selectedDoor);$('coolerShelves').innerHTML=shelves.map(sh=>{const items=sh.items||[];return `<div class="shelfCard" onclick="openShelfModal(${sh.door},${sh.shelf})"><div class="shelfTop"><b>Shelf ${sh.shelf}</b><span class="pill">${items.length} items</span></div><div class="miniProducts">${items.slice(0,8).map(i=>{const p=findProduct(i.upc);return `<div class="mini" title="${esc(p?.name||i.upc)}">${p?.image||productEmoji(p?.department)}</div>`}).join('')||'<span class="muted">Empty shelf</span>'}</div></div>`}).join('');renderPickList();renderDashboard()}
+function previewShelfProduct(){const p=findProduct($('shelfUpc').value);$('shelfProductPreview').innerHTML=p?`<div class="listCard">${prodImage(p)}<div><b>${esc(p.name)}</b><div class="muted">${esc(p.upc)} • ${money(p.price)}</div></div></div>`:`<span class="dangerText">Product not found.</span>`}
+function addProductToShelf(){const p=findProduct($('shelfUpc').value);if(!p){toast('Product not found');return}const door=Number($('shelfDoor').value), shelf=Number($('shelfNumber').value);const status=$('shelfStatus').value==='Need Backstock'?'Need':$('shelfStatus').value;const need=Number($('shelfNeed').value)||0;const c=getCooler();const sh=c.find(x=>x.door===door&&x.shelf===shelf);const old=(sh.items||[]).find(i=>i.upc===p.upc);if(old){old.status=status;old.need=need;old.updatedAt=new Date().toLocaleString();old.updatedBy=employee()}else{sh.items.push({upc:p.upc,status,need,updatedAt:new Date().toLocaleString(),updatedBy:employee()})}setLS(KEY.cooler,c);if(status==='Need'||need>0)addPickItem(p,door,shelf,need);logAction('Cooler shelf updated',`${p.name} Door ${door} Shelf ${shelf} ${status}`);toast('Saved to cooler shelf');$('shelfUpc').value='';$('shelfProductPreview').innerHTML='';renderAll()}
+function showAddShelfProduct(){showPage('cooler');$('addShelfBox').scrollIntoView({behavior:'smooth',block:'center'});$('shelfUpc').focus()}
+function openShelfModal(door,shelf){const sh=getCooler().find(x=>x.door===door&&x.shelf===shelf);$('shelfModalTitle').textContent=`Door ${door} • Shelf ${shelf}`;$('shelfModalBody').innerHTML=(sh.items||[]).map(i=>{const p=findProduct(i.upc)||{name:'Unknown',upc:i.upc,price:0,department:'General'};return `<div class="listCard">${prodImage(p)}<div><b>${esc(p.name)}</b><div class="muted">UPC: ${esc(p.upc)} • ${money(p.price)}</div><span class="status ${i.status}">${i.status}</span> <span class="pill">Need ${i.need||0}</span><div class="muted">Updated by ${esc(i.updatedBy||'')} ${esc(i.updatedAt||'')}</div></div><div class="actions"><button class="green" onclick="setCoolerStatus(${door},${shelf},'${p.upc}','Full')">Full</button><button class="orange" onclick="setCoolerStatus(${door},${shelf},'${p.upc}','Low')">Low</button><button class="red" onclick="setCoolerStatus(${door},${shelf},'${p.upc}','Empty')">Empty</button><button class="purple" onclick="needBackstock(${door},${shelf},'${p.upc}')">Need Backstock</button><button class="gray" onclick="removeFromShelf(${door},${shelf},'${p.upc}')">Remove</button></div></div>`}).join('')||'<p class="muted">No products on this shelf.</p>';$('shelfModal').classList.remove('hidden')}
+function closeShelfModal(){$('shelfModal').classList.add('hidden')}
+function setCoolerStatus(door,shelf,upc,status){const c=getCooler();const item=c.find(x=>x.door===door&&x.shelf===shelf).items.find(i=>i.upc===upc);if(item){item.status=status;item.updatedAt=new Date().toLocaleString();item.updatedBy=employee();if(status==='Full')item.need=0;setLS(KEY.cooler,c);logAction('Cooler status',`${findProduct(upc)?.name||upc} ${status}`);openShelfModal(door,shelf);renderAll()}}
+function needBackstock(door,shelf,upc){const qty=Number(prompt('How many needed?', '6'))||0;const p=findProduct(upc);setCoolerStatus(door,shelf,upc,'Need');const c=getCooler();const item=c.find(x=>x.door===door&&x.shelf===shelf).items.find(i=>i.upc===upc);if(item)item.need=qty;setLS(KEY.cooler,c);addPickItem(p,door,shelf,qty);openShelfModal(door,shelf);renderAll()}
+function removeFromShelf(door,shelf,upc){const c=getCooler();const sh=c.find(x=>x.door===door&&x.shelf===shelf);sh.items=sh.items.filter(i=>i.upc!==upc);setLS(KEY.cooler,c);openShelfModal(door,shelf);renderAll()}
+function addPickItem(p,door,shelf,need){if(!p)return;const list=getLS(KEY.pick,[]);list.unshift({id:Date.now()+Math.random(),upc:p.upc,name:p.name,door,shelf,need:need||0,status:'open',requestedBy:employee(),date:new Date().toLocaleString()});setLS(KEY.pick,list)}
+function renderPickList(){const list=getLS(KEY.pick,[]);const open=list.filter(x=>x.status!=='Delivered');$('pickCount').textContent=open.length+' open';$('pickList').innerHTML=open.slice(0,20).map(x=>`<div class="listCard"><div class="mini">${findProduct(x.upc)?.image||productEmoji(findProduct(x.upc)?.department)}</div><div><b>${esc(x.name)}</b><div class="muted">Door ${x.door} / Shelf ${x.shelf} • Need ${x.need}</div><span class="status ${x.status}">${x.status}</span></div><div class="actions"><button class="orange" onclick="setPickStatus('${x.id}','Picked')">Picked</button><button class="green" onclick="setPickStatus('${x.id}','Delivered')">Delivered</button></div></div>`).join('')||'<p class="muted">Nothing needed from backroom.</p>'}
+function setPickStatus(id,status){const list=getLS(KEY.pick,[]);const x=list.find(i=>String(i.id)===String(id));if(x){x.status=status;x.updatedAt=new Date().toLocaleString();x.updatedBy=employee();setLS(KEY.pick,list);logAction('Backroom pick list',`${x.name} ${status}`);renderAll()}}
+function previewInventory(){const p=findProduct($('invUpc').value);currentInvProduct=p;$('invPreview').innerHTML=p?`<div class="listCard">${prodImage(p)}<div><b>${esc(p.name)}</b><div class="muted">${esc(p.upc)} • ${money(p.price)} • Current qty ${p.qty||0}</div></div></div>`:`<span class="dangerText">Product not found.</span>`;if(p){$('invQty').value=p.qty||'';$('invLocation').value=p.location||''}}
+function saveInventoryCount(){const p=currentInvProduct||findProduct($('invUpc').value);if(!p){toast('Product not found');return}const qty=Number($('invQty').value);if(isNaN(qty)){toast('Enter quantity');return}p.qty=qty;p.location=$('invLocation').value||'';saveProducts();const arr=getLS(KEY.inventory,[]);arr.unshift({date:new Date().toLocaleString(),upc:p.upc,name:p.name,qty,location:p.location,by:employee()});setLS(KEY.inventory,arr);logAction('Inventory counted',`${p.name} qty ${qty}`);toast('Inventory saved');renderAll()}
+function renderInventory(){if(!$('inventoryBody'))return;const arr=getLS(KEY.inventory,[]);$('inventoryBody').innerHTML=arr.slice(0,100).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.upc)}</td><td>${esc(x.name)}</td><td>${x.qty}</td><td>${esc(x.location)}</td><td>${esc(x.by)}</td></tr>`).join('')||`<tr><td colspan="6" class="muted">No inventory counts yet.</td></tr>`;const low=allProducts.filter(p=>Number(p.qty)<=Number(p.min_stock));$('lowStockList').innerHTML=low.slice(0,25).map(p=>`<div class="listCard">${prodImage(p)}<div><b>${esc(p.name)}</b><div class="muted">Qty ${p.qty||0} • Min ${p.min_stock||5}</div></div><span class="status ${Number(p.qty)<=0?'Empty':'Low'}">${Number(p.qty)<=0?'Out':'Low'}</span></div>`).join('')||'<p class="muted">No low stock items.</p>'}
+function previewInvoiceImage(e){const f=e.target.files[0];if(!f)return;const url=URL.createObjectURL(f);$('invoicePreview').src=url;$('invoicePreview').classList.remove('hidden');toast('Invoice photo added')}
+function getInvoiceRows(){return getLS(KEY.invoiceRows,[])}
+function setInvoiceRows(r){setLS(KEY.invoiceRows,r);renderInvoiceRows()}
+function invoiceStatus(row){const p=findProduct(row.upc);const retail=Number(row.retail)||0,cost=Number(row.cost)||0;let status=[];if(!p)status.push('New item');else{if(retail&&Math.abs(retail-Number(p.price))>.009)status.push('Retail changed');if(cost&&p.last_cost&&Math.abs(cost-Number(p.last_cost))>.009)status.push('Cost changed')}const margin=retail?((retail-cost)/retail*100):0;if(retail&&cost&&margin<25)status.push('Low margin');return {p,status:status.join(', ')||'OK',margin}}
+function parseInvoiceText(){const lines=$('invoiceText').value.split(/\n+/);const rows=getInvoiceRows();for(const line of lines){const nums=line.match(/\b\d{7,14}\b|\d+\.\d{1,2}|\b\d+\b/g)||[];const upc=(line.match(/\b\d{7,14}\b/)||[])[0];if(!upc)continue;const after=nums.filter(n=>n!==upc).map(Number).filter(n=>!isNaN(n));const qty=after[0]||1,cost=after[1]||0,retail=after[2]||0;const p=findProduct(upc);const name=p?.name||line.replace(upc,'').replace(/[0-9.]/g,' ').replace(/\s+/g,' ').trim()||'Unknown';rows.push({upc:clean(upc),name,qty,cost,retail})}setInvoiceRows(rows);toast('Parsed invoice text')}
+function addInvoiceRowManual(){const row={upc:clean($('invoiceUpc').value),name:$('invoiceName').value||findProduct($('invoiceUpc').value)?.name||'Unknown',qty:Number($('invoiceQty').value)||1,cost:Number($('invoiceCost').value)||0,retail:Number($('invoiceRetail').value)||0};if(!row.upc){toast('Enter UPC');return}const rows=getInvoiceRows();rows.push(row);setInvoiceRows(rows);['invoiceUpc','invoiceQty','invoiceCost','invoiceRetail','invoiceName'].forEach(id=>$(id).value='')}
+function renderInvoiceRows(){if(!$('invoiceRowsBody'))return;const rows=getInvoiceRows();$('invoiceRowsBody').innerHTML=rows.map(r=>{const st=invoiceStatus(r);return `<tr><td>${esc(r.upc)}</td><td>${esc(r.name)}</td><td>${r.qty}</td><td>${money(r.cost)}</td><td>${money(r.retail)}</td><td>${st.margin?st.margin.toFixed(1)+'%':''}</td><td>${esc(st.status)}</td></tr>`}).join('')||`<tr><td colspan="7" class="muted">No invoice rows yet.</td></tr>`}
+function saveInvoiceRows(){const rows=getInvoiceRows();if(!rows.length){toast('No invoice rows');return}const saved=getLS(KEY.invoice,[]);saved.unshift({id:Date.now(),date:new Date().toLocaleString(),by:employee(),rows});setLS(KEY.invoice,saved);logAction('Invoice saved',`${rows.length} rows`);toast('Invoice saved')}
+function clearInvoiceRows(){setInvoiceRows([])}
+function defaultTasks(){return [{id:1,title:'Check expired products on all shelves',shift:'Night',assigned:'Night Shift',status:'open'},{id:2,title:'Clean cooler doors and face drinks',shift:'Night',assigned:'Night Shift',status:'open'},{id:3,title:'Sweep and mop after 12 AM',shift:'Night',assigned:'Night Shift',status:'open'},{id:4,title:'Stock coffee, cups, lids and condiments',shift:'Morning',assigned:'Cashier',status:'open'},{id:5,title:'Clean restrooms and refill supplies',shift:'Day',assigned:'Cashier',status:'open'},{id:6,title:'Make cigarette and chew list',shift:'Night',assigned:'Night Shift',status:'open'},{id:7,title:'Manager review price labels',shift:'Day',assigned:'Manager',status:'open'}]}
+function getTasks(){let t=getLS(KEY.tasks,null);if(!t){t=defaultTasks();setLS(KEY.tasks,t)}return t}
+function renderTasks(){if(!$('taskBody'))return;const t=getTasks();$('taskBody').innerHTML=t.map(x=>`<tr><td>${esc(x.title)}</td><td>${esc(x.shift)}</td><td>${esc(x.assigned)}</td><td><span class="status ${x.status}">${x.status}</span></td><td>${esc(x.completedBy||'')}</td><td>${esc(x.completedAt||x.due||'')}</td><td><div class="actions"><button class="green" onclick="completeTask('${x.id}')">Done</button><button class="blue" onclick="reviewTask('${x.id}')">Review</button><button class="red" onclick="deleteTask('${x.id}')">Delete</button></div></td></tr>`).join('');$('taskDoneCount').textContent=t.filter(x=>x.status==='done').length;$('taskOpenCount').textContent=t.filter(x=>x.status!=='done').length}
+function addTask(){const t=getTasks();t.unshift({id:Date.now(),title:$('taskTitle').value||'New task',shift:$('taskShift').value,assigned:$('taskAssigned').value||employee(),due:$('taskDue').value,status:'open'});setLS(KEY.tasks,t);logAction('Task added',$('taskTitle').value);$('taskTitle').value='';renderAll()}
+function completeTask(id){const t=getTasks();const x=t.find(i=>String(i.id)===String(id));if(x){x.status='done';x.completedBy=employee();x.completedAt=new Date().toLocaleString();setLS(KEY.tasks,t);logAction('Task completed',x.title);renderAll()}}
+function reviewTask(id){const t=getTasks();const x=t.find(i=>String(i.id)===String(id));if(x){x.reviewedBy=employee();x.reviewedAt=new Date().toLocaleString();logAction('Task reviewed',x.title);setLS(KEY.tasks,t);toast('Reviewed')}}
+function deleteTask(id){setLS(KEY.tasks,getTasks().filter(x=>String(x.id)!==String(id)));renderAll()}
+function resetDefaultTasks(){if(confirm('Replace tasks with default checklist?')){setLS(KEY.tasks,defaultTasks());renderAll()}}
+function previewCig(){const p=findProduct($('cigUpc').value);currentCigProduct=p;$('cigPreview').innerHTML=p?`<div class="listCard">${prodImage(p)}<div><b>${esc(p.name)}</b><div class="muted">${p.upc} • ${money(p.price)}</div></div></div>`:`<span class="dangerText">Product not found.</span>`}
+function addCigOrder(){const p=currentCigProduct||findProduct($('cigUpc').value);if(!p){toast('Product not found');return}const arr=getLS(KEY.cig,[]);arr.unshift({id:Date.now(),upc:p.upc,name:p.name,category:$('cigCategory').value,qty:Number($('cigQty').value)||1,by:employee(),status:'open'});setLS(KEY.cig,arr);logAction('Cigarette order',`${p.name} x ${$('cigQty').value||1}`);$('cigUpc').value='';$('cigQty').value=1;$('cigPreview').innerHTML='';renderAll()}
+function renderCig(){if(!$('cigBody'))return;const arr=getLS(KEY.cig,[]);$('cigCount').textContent=arr.length+' items';$('cigBody').innerHTML=arr.map(x=>`<tr><td>${esc(x.upc)}</td><td>${esc(x.name)}</td><td>${esc(x.category)}</td><td>${x.qty}</td><td>${esc(x.by)}</td><td><span class="status ${x.status}">${x.status}</span></td><td><button class="red" onclick="removeCig('${x.id}')">Remove</button></td></tr>`).join('')||`<tr><td colspan="7" class="muted">No cigarette order items.</td></tr>`}
+function removeCig(id){setLS(KEY.cig,getLS(KEY.cig,[]).filter(x=>String(x.id)!==String(id)));renderAll()}
+function renderReports(){if(!$('repPriceToday'))return;const pc=getLS(KEY.priceChanges,[]), pick=getLS(KEY.pick,[]), inv=getLS(KEY.inventory,[]), invoices=getLS(KEY.invoice,[]);$('repPriceToday').textContent=pc.filter(x=>String(x.date).startsWith(todayKey())).length;$('repPickOpen').textContent=pick.filter(x=>x.status!=='Delivered').length;$('repInvToday').textContent=inv.filter(x=>String(x.date).startsWith(todayKey())).length;$('repInvoiceRows').textContent=invoices.reduce((s,i)=>s+(i.rows?.length||0),0)}
+function renderDatabase(){if(!$('dbPreview'))return;$('dbProductCount').textContent=allProducts.length+' products';$('dbPreview').innerHTML=allProducts.slice(0,75).map(p=>`<tr><td>${esc(p.upc)}</td><td>${esc(p.name)}</td><td>${money(p.price)}</td><td>${esc(p.department)}</td><td>${p.qty||0}</td></tr>`).join('')||`<tr><td colspan="5" class="muted">No products loaded.</td></tr>`;$('supabaseUrl').value=setting('supabaseUrl','');$('supabaseKey').value=setting('supabaseKey','')}
+function parseCSV(text){const rows=[];let row=[],cell='',q=false;for(let i=0;i<text.length;i++){const ch=text[i],n=text[i+1];if(ch==='"'&&q&&n==='"'){cell+='"';i++}else if(ch==='"'){q=!q}else if(ch===','&&!q){row.push(cell);cell=''}else if((ch==='\n'||ch==='\r')&&!q){if(cell||row.length){row.push(cell);rows.push(row);row=[];cell=''}if(ch==='\r'&&n==='\n')i++}else cell+=ch}if(cell||row.length){row.push(cell);rows.push(row)}return rows}
+function importCSV(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const rows=parseCSV(r.result);const head=rows.shift().map(h=>h.trim());const products=rows.map(row=>{const o={};head.forEach((h,i)=>o[h]=row[i]);return normalizeProduct(o)}).filter(p=>p.upc);if(!products.length){toast('No products found in CSV');return}allProducts=products;saveProducts();logAction('Products imported',`${products.length} products from CSV`);toast('Imported '+products.length+' products')};r.readAsText(f)}
+function csvEscape(v){return '"'+String(v??'').replaceAll('"','""')+'"'}
+function downloadCSV(name,headers,rows){const csv=headers.join(',')+'\n'+rows.map(r=>r.map(csvEscape).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+function downloadProductsCSV(){downloadCSV('amerimart-products.csv',['upc','name','price','department','image','qty','min_stock'],allProducts.map(p=>[p.upc,p.name,p.price,p.department,p.image,p.qty,p.min_stock]))}
+function downloadLabelsCSV(){const q=getLS(KEY.printQueue,[]);downloadCSV('price-labels.csv',['date','upc','name','old_price','new_price','changed_by'],q.map(x=>[x.date,x.upc,x.name,x.old,x.new,x.changedBy]))}
+function downloadInventoryCSV(){const a=getLS(KEY.inventory,[]);downloadCSV('inventory-counts.csv',['date','upc','name','qty','location','by'],a.map(x=>[x.date,x.upc,x.name,x.qty,x.location,x.by]))}
+function downloadCigCSV(){const a=getLS(KEY.cig,[]);downloadCSV('cigarette-order.csv',['upc','name','category','qty','by','status'],a.map(x=>[x.upc,x.name,x.category,x.qty,x.by,x.status]))}
+function downloadActivityCSV(){const a=getLS(KEY.activity,[]);downloadCSV('activity-report.csv',['time','employee','action','details'],a.map(x=>[x.time,x.employee,x.action,x.details]))}
+function exportBackup(){const data={products:allProducts,priceChanges:getLS(KEY.priceChanges,[]),printQueue:getLS(KEY.printQueue,[]),cooler:getLS(KEY.cooler,[]),pick:getLS(KEY.pick,[]),inventory:getLS(KEY.inventory,[]),invoice:getLS(KEY.invoice,[]),tasks:getLS(KEY.tasks,[]),cig:getLS(KEY.cig,[]),activity:getLS(KEY.activity,[]),settings:getLS(KEY.settings,{})};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='amerimart-manager-backup.json';a.click();URL.revokeObjectURL(url)}
+function importBackup(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.products){allProducts=d.products.map(normalizeProduct);setLS(KEY.products,allProducts)}['priceChanges','printQueue','cooler','pick','inventory','invoice','tasks','cig','activity','settings'].forEach(k=>{if(d[k]!==undefined)setLS(KEY[k],d[k])});loadProducts();renderAll();toast('Backup imported')}catch(err){toast('Invalid backup file')}};r.readAsText(f)}
+function saveSupabaseSettings(){saveSetting('supabaseUrl',$('supabaseUrl').value.trim().replace(/\/$/,''));saveSetting('supabaseKey',$('supabaseKey').value.trim());toast('Supabase settings saved')}
+async function loadProductsFromSupabase(){saveSupabaseSettings();const url=setting('supabaseUrl'),key=setting('supabaseKey');if(!url||!key){toast('Enter Supabase URL and anon key');return}try{const res=await fetch(url+'/rest/v1/products?select=*',{headers:{apikey:key,Authorization:'Bearer '+key}});if(!res.ok)throw new Error(await res.text());const data=await res.json();allProducts=data.map(normalizeProduct);saveProducts();logAction('Supabase load',`${allProducts.length} products`);toast('Loaded products from Supabase')}catch(e){toast('Supabase load failed: '+e.message)}}
+async function syncProductsToSupabase(){saveSupabaseSettings();const url=setting('supabaseUrl'),key=setting('supabaseKey');if(!url||!key){toast('Enter Supabase URL and anon key');return}try{const body=allProducts.map(p=>({upc:p.upc,name:p.name,price:p.price,department:p.department,image:p.image,qty:p.qty,min_stock:p.min_stock}));const res=await fetch(url+'/rest/v1/products?on_conflict=upc',{method:'POST',headers:{apikey:key,Authorization:'Bearer '+key,'Content-Type':'application/json',Prefer:'resolution=merge-duplicates'},body:JSON.stringify(body)});if(!res.ok)throw new Error(await res.text());logAction('Supabase upload',`${body.length} products`);toast('Uploaded products to Supabase')}catch(e){toast('Supabase upload failed: '+e.message)}}
+function openScanner(inputId,afterFn){scanTarget=inputId;scanAfter=afterFn;$('scanOverlay').classList.remove('hidden');if(typeof Html5Qrcode==='undefined'){toast('Scanner library not loaded');return}try{scanner=scanner||new Html5Qrcode('reader');scanner.start({facingMode:'environment'},{fps:10,qrbox:{width:260,height:160}},decoded=>{if(scanTarget)$(scanTarget).value=clean(decoded);closeScanner();if(scanAfter&&window[scanAfter])window[scanAfter]();}).catch(e=>toast('Camera could not start'))}catch(e){toast('Camera error')}}
+async function closeScanner(){try{if(scanner&&scanner.isScanning)await scanner.stop()}catch(e){}$('scanOverlay').classList.add('hidden')}
+['priceUpc','shelfUpc','invUpc','cigUpc'].forEach(id=>setTimeout(()=>{const el=$(id);if(el)el.addEventListener('keydown',e=>{if(e.key==='Enter'){if(id==='priceUpc')searchPrice();if(id==='shelfUpc')previewShelfProduct();if(id==='invUpc')previewInventory();if(id==='cigUpc')previewCig()}})},0));
+loadProducts();renderAll();
+</script>
+</body>
+</html>
